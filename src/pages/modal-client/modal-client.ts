@@ -25,7 +25,7 @@ export class ModalClientPage {
               public navParams: NavParams,
               public serviceProvider: ServiceProvider,
               public viewCtrl: ViewController) {
-  this.client = {}; 
+  this.client = {bills: Array<any>(), }; 
 
 
   }
