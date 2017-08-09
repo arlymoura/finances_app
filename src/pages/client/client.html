@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Cliente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div class="div-border">
+    <h6 class="h6-center">Nome: {{ client.name }}</h6>
+    <h6 class="h6-center">CPF: {{ client.cpf }}</h6>
+    <h6 class="h6-center">RG: {{ client.rg }}</h6>
+    <h6 class="h6-center">Celular (1): {{ client.phone1 }}</h6>
+    <h6 class="h6-center">Celular (2): {{ client.phone2 }}</h6>
+    <h6 class="h6-center">Rua: {{ client.street }}</h6>
+    <h6 class="h6-center">Número: {{ client.number }}</h6>
+    <h6 class="h6-center">Bairro: {{ client.district }}</h6>
+    <h6 class="h6-center">Cidade: {{ client.city }}</h6>
+  </div>
+
+  <br>
+
+  <table>
+    <tr>
+      <th>Data</th>
+      <th>Valor Total</th>
+      <th>Valor Pago</th>
+    </tr>
+    <tr *ngFor="let bill of client.bills" (click)="goToPaymentPage(bill.payments)">
+      <td>{{bill.date}}</td>
+      <td>{{bill.value}}</td>
+      <td>{{bill.paid}}</td>
+    </tr>
+  </table>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="presentModal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

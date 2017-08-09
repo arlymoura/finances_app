@@ -1,23 +1,22 @@
 <ion-header>
+
   <ion-navbar color="primary">
-    <ion-title>
-      CLIENTES
-    </ion-title>
+    <ion-title>ROTAS</ion-title>
   </ion-navbar>
+
 </ion-header>
 
 <ion-content padding>
 
-  <ion-searchbar placeholder="Pesquisar"(ionInput)="getItems($event)"></ion-searchbar>
+   <ion-searchbar placeholder="Pesquisar" (ionInput)="getItems($event)"></ion-searchbar>
 
-  <h4 class="center">CLIENTES ({{count}})</h4>
+   <h4 class="center">ROTAS ({{count}})</h4>
 
   <ion-list>
 
-    <ion-item *ngFor="let client of list_clients" (click)="goToClientPage(client)">
+    <ion-item *ngFor="let driver of list_drive" (click)="goToDriveOnePage(driver)">
       <ion-icon name="ios-contact" item-start></ion-icon>
-      <h2><b>Nome: </b>{{ client.name }}</h2>
-      <p><b>CPF: </b>{{ client.cpf }}</p>
+      <h2><b>Rota: </b>{{ driver.name }}</h2>
     </ion-item>
   </ion-list>
 

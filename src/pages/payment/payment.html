@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Histórico de Pagamentos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="container">
+    <!-- <div class="page-header">
+      <h1 id="timeline">Histórico de Pagamentos</h1>
+    </div> -->
+    <h2>Total do Débito: {{ debito }}</h2>
+    <ul class="timeline">
+  
+    <li *ngFor="let item of payments">
+      <div class="timeline-badge"><ion-icon name="md-arrow-round-down"></ion-icon></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h5 class="timeline-title">R$: {{ item.value }}</h5>
+          <p><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>  {{ item.date }}</p>
+        </div>
+       
+      </div>
+    </li>
+  </ul>
+  </div>
+</ion-content>

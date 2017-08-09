@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Cadastro de Cliente</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<!-- 
+  <h2 class="center">Cadastro de Clientes</h2>
+
+  <br> -->
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Nome:</ion-label>
+      <ion-input placeholder="Ex.: André" [(ngModel)]="client.name"></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label color="primary">CPF:</ion-label>
+      <ion-input placeholder="Ex.: 000.000.000-00" [(ngModel)]="client.cpf"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">RG:</ion-label>
+      <ion-input placeholder="Ex.: 0.000.000"[(ngModel)]="client.rg"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Celular (1):</ion-label>
+      <ion-input placeholder="Ex.: (86)99999-9999"[(ngModel)]="client.phone1"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Celular (2):</ion-label>
+      <ion-input placeholder="Ex.: (86)99999-9999"[(ngModel)]="client.phone2"></ion-input>
+    </ion-item>
+
+     <ion-item>
+      <ion-label color="primary">Rua:</ion-label>
+      <ion-input placeholder="Ex.: Manoel Nogueira Lima">[(ngModel)]="client.street"</ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Número:</ion-label>
+      <ion-input placeholder="Ex.: 1380"[(ngModel)]="client.number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Bairro:</ion-label>
+      <ion-input placeholder="Ex.: Jóquei"[(ngModel)]="client.district"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Cidade:</ion-label>
+      <ion-input placeholder="Ex.: Teresina"[(ngModel)]="client.city"></ion-input>
+    </ion-item>
+
+    <br>
+
+    <div class="buttons">
+      <button ion-button color="primary" (click)="createClient(client)">Salvar</button>
+      <button ion-button color="danger" (click)="dismiss()">Cancelar</button>
+    </div>
+
+  </ion-list>
+
+</ion-content>

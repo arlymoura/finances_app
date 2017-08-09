@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ driveonelocal.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+   <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+
+  <ion-list>
+    <ion-item *ngFor="let item of driveonelocal.clients">
+      <ion-icon name="ios-contact" item-start></ion-icon>
+      <h2><b>Nome: </b>{{ item.name }}</h2>
+       <p><b>CPF: </b>{{ item.cpf }}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+   <button ion-fab color="secondary" (click)="presentModal()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
