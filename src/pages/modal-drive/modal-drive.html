@@ -11,13 +11,13 @@
   <ion-list>
     <ion-item>
       <ion-label color="primary">Rota:</ion-label>
-      <ion-input placeholder="Ex.: Centro"></ion-input>
+      <ion-input placeholder="Ex.: Centro" [(ngModel)]="drive.name"></ion-input>
     </ion-item>
   </ion-list>
 
   <div class="buttons">
-    <button ion-button>Salvar</button>
     <button ion-button color="danger" (click)="dismiss()">Cancelar</button>
+    <button ion-button color="secondary" (click)="createDrive(drive)">Salvar</button>
   </div>
 
 </ion-content>

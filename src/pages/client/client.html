@@ -22,13 +22,16 @@
 
   <br>
 
-  <table>
+  <h3>Lista de Contas</h3>
+
+   <table *ngIf="client.bills != undefined">
     <tr>
       <th>Data</th>
       <th>Valor Total</th>
       <th>Valor Pago</th>
     </tr>
-    <tr *ngFor="let bill of client.bills" (click)="goToPaymentPage(bill.payments)">
+
+    <tr *ngFor="let bill of client.bills" (click)="goToPaymentPage(bill)">
       <td>{{bill.date}}</td>
       <td>{{bill.value}}</td>
       <td>{{bill.paid}}</td>
@@ -36,7 +39,7 @@
   </table>
 
   <ion-fab right bottom>
-    <button ion-fab color="secondary" (click)="presentModal()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="secondary" (click)="presentModal(client)"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-content>

@@ -15,7 +15,7 @@
     </div> -->
     <h2>Total do Débito: {{ debito }}</h2>
     <ul class="timeline">
-  
+
     <li *ngFor="let item of payments">
       <div class="timeline-badge"><ion-icon name="md-arrow-round-down"></ion-icon></div>
       <div class="timeline-panel">
@@ -23,9 +23,12 @@
           <h5 class="timeline-title">R$: {{ item.value }}</h5>
           <p><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>  {{ item.date }}</p>
         </div>
-       
+
       </div>
     </li>
   </ul>
   </div>
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="presentModal(bill)"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

@@ -26,12 +26,13 @@ export class ClientPage {
     this.data = this.serviceProvider.data;
   }
 
-   presentModal() {
-    let modal = this.modalCtrl.create(ModalSalePage);
+   presentModal(obj) {
+    // let modal = this.modalCtrl.create(ModalSalePage);
+    let modal = this.modalCtrl.create(ModalSalePage, {"client": obj});
     modal.present();
   }
 
   goToPaymentPage(object) {
-    this.navCtrl.push(PaymentPage, {"payments": object});
+    this.navCtrl.push(PaymentPage, {"bill": object});
   }
 }

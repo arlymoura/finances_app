@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { ModalController, LoadingController } from 'ionic-angular';
+import { ModalController, LoadingController, AlertController } from 'ionic-angular';
 import { ModalClientPage } from '../modal-client/modal-client';
 import { ClientPage } from "../client/client";
 import { ServiceProvider } from "../../providers/service/service";
+import { IndexPage } from "../index/index";
 
 @Component({
   selector: 'page-home',
@@ -24,7 +25,8 @@ export class HomePage {
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
               private serviceProvider: ServiceProvider,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              public alertCtrl: AlertController) {
                 this.count = 0;
   }
 
@@ -60,8 +62,19 @@ export class HomePage {
         }, error=> {
           this.loader.dismiss();
           console.log(error);
+          this.showAlert();
+          this.navCtrl.setRoot(IndexPage);
         } 
       )
+    }
+
+    showAlert() {
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: 'Error ao conectar no servidor. Verifique seu acesso a internet e tente novamente',
+        buttons: ['OK']
+      });
+      alert.present();
     }
 
     getItems(ev: any) {
@@ -78,8 +91,10 @@ export class HomePage {
         this.list_clients = this.list_clients.filter((item) => {
 
           for (let key in item) {
-            if (item[key].toString().toLowerCase().indexOf(val.toLowerCase()) > -1){
-              return item;
+            if (item[key] != undefined){
+              if (item[key].toString().toLowerCase().indexOf(val.toLowerCase()) > -1){
+                return item;
+              }
             }
           }
         })

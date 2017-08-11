@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+     <ion-title>Cadastro de Pagamento</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Valor</ion-label>
+      <ion-input type="number" step="0.01" placeholder="Ex.: 1000.00" [(ngModel)]="payment.value"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Data</ion-label>
+     <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" [(ngModel)]="payment.date"></ion-datetime>
+    </ion-item>
+
+    <ion-item [hidden]="true">
+      <ion-label color="primary">Conta</ion-label>
+      <ion-input placeholder="Ex.: Client" [(ngModel)]="payment.bill_id" value={{bill.id}}></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="buttons">
+    <button ion-button color="danger" (click)="dismiss()">Cancelar</button>
+    <button ion-button color="secondary" (click)="createPayment(payment)">Salvar</button>
+  </div>
+
+</ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
 import { ServiceProvider } from "../../providers/service/service";
-import { ClientPage } from "../client/client";
+
 
 /**
  * Generated class for the ModalClientPage page.
@@ -24,15 +24,31 @@ export class ModalClientPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public serviceProvider: ServiceProvider,
-              public viewCtrl: ViewController) {
-  this.client = {bills: Array<any>(), }; 
+              public viewCtrl: ViewController,
+              private toastCtrl: ToastController) {
+  this.client ={};
 
 
   }
 
+  presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Cliente criado com sucesso',
+    duration: 3000,
+    cssClass: "mensageColor",
+    position: 'top'
+  });
+
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present()
+}
+
   ionViewDidLoad() {
     this.data = this.serviceProvider.data;
-    
+
   }
 
   dismiss() {
@@ -40,12 +56,12 @@ export class ModalClientPage {
  }
 
   createClient(item) {
-    console.log(item);
-    console.log(this.client);
     this.serviceProvider.createClient(this.client)
       .then((items: Array<any>) => {
-        this.navCtrl.setRoot(ClientPage);
-      }) 
+        // this.navCtrl.setRoot(ClientPage(this.client));
+        this.presentToast();
+        this.dismiss();
+      })
   }
 
 }

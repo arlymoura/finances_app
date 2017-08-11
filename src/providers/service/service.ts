@@ -45,4 +45,77 @@ export class ServiceProvider {
     });
   }
 
+
+  createDrive(item) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    let body = JSON.stringify({
+       drive: item,
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.baseUrl + "/drives", body, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, error => {
+        reject(error)
+      });
+    });
+  }
+
+  createSale(item) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    let body = JSON.stringify({
+       bill: item,
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.baseUrl + "/bills", body, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, error => {
+        reject(error)
+      });
+    });
+  }
+
+  createPayment(item) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    let body = JSON.stringify({
+       payment: item,
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.baseUrl + "/payments", body, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, error => {
+        reject(error)
+      });
+    });
+  }
+
 }

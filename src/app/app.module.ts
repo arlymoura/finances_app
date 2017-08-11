@@ -17,6 +17,8 @@ import { IndexModule } from "../pages/index/index.module";
 import { DriverModule } from "../pages/driver/driver.module";
 import { DriveOneModule } from "../pages/drive-one/drive-one.module";
 import { ModalDriveModule } from "../pages/modal-drive/modal-drive.module";
+import { ModalPaymentModule } from "../pages/modal-payment/modal-payment.module";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ModalDriveModule } from "../pages/modal-drive/modal-drive.module";
     IndexModule,
     DriverModule,
     DriveOneModule,
-    ModalDriveModule
+    ModalDriveModule,
+    ModalPaymentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

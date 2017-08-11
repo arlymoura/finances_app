@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, LoadingController, AlertController } from 'ionic-angular';
 import { ServiceProvider } from "../../providers/service/service";
 import { DriveOnePage } from "../drive-one/drive-one";
 import { ModalDrivePage } from "../modal-drive/modal-drive";
+import { IndexPage } from "../index/index";
 
 @Component({
   selector: 'page-driver',
@@ -20,9 +21,20 @@ export class DriverPage {
               public navParams: NavParams,
               public serviceProvider: ServiceProvider,
               public modalCtrl: ModalController,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              public alertCtrl: AlertController) {
                 this.count = 0;
   }
+
+  showAlert() {
+      let alert = this.alertCtrl.create({
+        title: 'Error',
+        subTitle: 'Error ao conectar no servidor. Verifique seu acesso a internet e tente novamente',
+        buttons: ['OK']
+      });
+      alert.present();
+    }
+
 
   ionViewDidLoad() {
     this.loader = this.loadingCtrl.create({
@@ -50,6 +62,8 @@ export class DriverPage {
           console.log(object_return); 
         }, error=> {
                     this.loader.dismiss();
+                    this.showAlert();
+                    this.navCtrl.setRoot(IndexPage);
 
           console.log(error);
         } 
