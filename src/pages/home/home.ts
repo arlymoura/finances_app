@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
-import { ModalController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, ModalController, LoadingController, AlertController } from 'ionic-angular';
 import { ModalClientPage } from '../modal-client/modal-client';
 import { ClientPage } from "../client/client";
 import { ServiceProvider } from "../../providers/service/service";
@@ -36,8 +34,6 @@ export class HomePage {
   }
 
    goToClientPage(obj) {
-    //push another page onto the history stack
-    //causing the nav controller to animate the new page in
     this.navCtrl.push(ClientPage, {"client": obj});
   }
 
@@ -51,7 +47,7 @@ export class HomePage {
 
     this.serviceProvider.getClients().subscribe (
         data => {
-          
+
           const response = (data as any);
           const object_return = JSON.parse(response._body);
           this.list_clients = object_return;
@@ -64,7 +60,7 @@ export class HomePage {
           console.log(error);
           this.showAlert();
           this.navCtrl.setRoot(IndexPage);
-        } 
+        }
       )
     }
 

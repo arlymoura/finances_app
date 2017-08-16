@@ -5,9 +5,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServiceProvider {
 
-  private baseUrl = "http://192.168.0.19:3000";
+  private baseUrl = "http://192.168.0.33:3000";
   public data = {};
+
   public drive = {};
+  public client = {};
+  public payment = {};
+  public bill = {};
+
+  public clients = {};
+  public payments = {};
+  public bills = {};
+
+
 
   constructor(public http: Http) {
     console.log('Hello ServiceProvider Provider');
@@ -17,8 +27,24 @@ export class ServiceProvider {
     return this.http.get(this.baseUrl + "/clients");
   }
 
+  getOneClient(id) {
+    return this.http.get(this.baseUrl + "/clients/" + id);
+  }
+
   getDrives() {
     return this.http.get(this.baseUrl + "/drives")
+  }
+
+  getOneDrive(id) {
+    return this.http.get(this.baseUrl + "/drives/" + id)
+  }
+
+  getOneBill(id) {
+    return this.http.get(this.baseUrl + "/bills/" + id);
+  }
+
+  getOnePayment(id) {
+    return this.http.get(this.baseUrl + "/payments/" + id);
   }
 
   createClient(item) {

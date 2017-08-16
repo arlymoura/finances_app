@@ -6,18 +6,20 @@
 
 <ion-content padding>
 
-   <ion-searchbar placeholder="Pesquisar"></ion-searchbar>
+  <ion-searchbar placeholder="Pesquisar"(ionInput)="getItems($event)"></ion-searchbar>
+
+  <h4 class="center">CLIENTES ({{count}})</h4>
 
   <ion-list>
-    <ion-item *ngFor="let item of driveonelocal.clients">
+    <ion-item *ngFor="let item of driveonelocal.clients " (click)="goToClientPage(item)">
       <ion-icon name="ios-contact" item-start></ion-icon>
       <h2><b>Nome: </b>{{ item.name }}</h2>
        <p><b>CPF: </b>{{ item.cpf }}</p>
     </ion-item>
   </ion-list>
 
-  <ion-fab right bottom>
+  <!-- <ion-fab right bottom>
    <button ion-fab color="secondary" (click)="presentModal()"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
+  </ion-fab> -->
 
 </ion-content>

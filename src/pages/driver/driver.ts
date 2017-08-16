@@ -8,6 +8,9 @@ import { IndexPage } from "../index/index";
 @Component({
   selector: 'page-driver',
   templateUrl: 'driver.html',
+  providers: [
+    ServiceProvider
+  ]
 })
 
 export class DriverPage {
@@ -49,7 +52,7 @@ export class DriverPage {
 
     this.serviceProvider.getDrives().subscribe (
         data => {
-          
+
           const response = (data as any);
           const object_return = JSON.parse(response._body);
           this.list_drive = object_return;
@@ -58,15 +61,15 @@ export class DriverPage {
           this.list_drive_search = this.list_drive;
           this.loader.dismiss();
 
-          
-          console.log(object_return); 
+
+          console.log(object_return);
         }, error=> {
                     this.loader.dismiss();
                     this.showAlert();
                     this.navCtrl.setRoot(IndexPage);
 
           console.log(error);
-        } 
+        }
       )
   }
 
