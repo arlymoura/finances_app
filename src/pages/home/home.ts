@@ -30,14 +30,24 @@ export class HomePage {
 
   presentModal(obj) {
     let modal = this.modalCtrl.create(ModalClientPage, {"client": obj});
+    modal.onDidDismiss(data => {
+     console.log(data);
+     this.getClients();
+   });
     modal.present();
+
   }
 
    goToClientPage(obj) {
     this.navCtrl.push(ClientPage, {"client": obj});
+
   }
 
   ionViewDidLoad() {
+    this.getClients();
+    }
+
+  getClients(){
     this.loader = this.loadingCtrl.create({
        content: "Aguarde ...",
        duration: 10000
@@ -62,7 +72,7 @@ export class HomePage {
           this.navCtrl.setRoot(IndexPage);
         }
       )
-    }
+  }
 
     showAlert() {
       let alert = this.alertCtrl.create({

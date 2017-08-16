@@ -10,7 +10,7 @@
 <ion-content padding>
 
   <h2 class="center">Cadastro de Clientes</h2>
- 
+
 
   <ion-list>
     <ion-item>
@@ -40,7 +40,7 @@
 
      <ion-item>
       <ion-label color="primary">Rua:</ion-label>
-      <ion-input placeholder="Ex.: Manoel Nogueira Lima">[(ngModel)]="client.street"</ion-input>
+      <ion-input placeholder="Ex.: Manoel Nogueira Lima"[(ngModel)]="client.street"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -58,6 +58,12 @@
       <ion-input placeholder="Ex.: Teresina"[(ngModel)]="client.city"></ion-input>
     </ion-item>
 
+    <ion-item>
+      <ion-label>Rota</ion-label>
+      <ion-select cancelText="Cancelar" [(ngModel)]="client.drive_id">
+        <ion-option *ngFor="let driver of drives" [value]="driver.id">{{driver.name}}</ion-option>
+      </ion-select>
+    </ion-item>
     <br>
 
     <div class="buttons">

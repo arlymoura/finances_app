@@ -23,9 +23,14 @@ export class ClientPage {
               public loadingCtrl: LoadingController,
               public alertCtrl: AlertController) {
     this.client = navParams.get('client');
+    
   }
 
   ionViewDidLoad() {
+    this.getClient();
+  }
+
+  getClient(){
     console.log('Hello Cliente One')
 
       this.loader = this.loadingCtrl.create({
@@ -53,6 +58,10 @@ export class ClientPage {
    presentModal(obj) {
     // let modal = this.modalCtrl.create(ModalSalePage);
     let modal = this.modalCtrl.create(ModalSalePage, {"client": obj});
+    modal.onDidDismiss(data => {
+     console.log(data);
+     this.getClient();
+   });
     modal.present();
   }
 

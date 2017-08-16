@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController, ToastController, AlertController } from 'ionic-angular';
 import { ServiceProvider } from "../../providers/service/service";
-import { IndexPage } from "../index/index";
 
 /**
  * Generated class for the ModalDrivePage page.
@@ -69,7 +68,7 @@ createDrive(item) {
 
         this.presentToast();
         this.dismiss();
-        this.navCtrl.setRoot(IndexPage);
+
       })
   }
 

@@ -40,6 +40,10 @@ export class DriverPage {
 
 
   ionViewDidLoad() {
+    this.getDrives();
+  }
+
+  getDrives(){
     this.loader = this.loadingCtrl.create({
        content: "Aguarde ...",
        duration: 10000
@@ -77,8 +81,12 @@ export class DriverPage {
      this.navCtrl.push(DriveOnePage, {"drive": object});
   }
 
-    presentModal() {
+  presentModal() {
     let modal = this.modalCtrl.create(ModalDrivePage);
+    modal.onDidDismiss(data => {
+     console.log(data);
+     this.getDrives();
+   });
     modal.present();
   }
 

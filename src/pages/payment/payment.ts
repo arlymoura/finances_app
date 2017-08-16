@@ -30,6 +30,10 @@ export class PaymentPage {
   }
 
   ionViewDidLoad() {
+    this.getPayments();
+  }
+
+  getPayments(){
     console.log('ionViewDidLoad PaymentPage');
 
     this.loader = this.loadingCtrl.create({
@@ -62,12 +66,15 @@ export class PaymentPage {
 
         }
       )
-
   }
 
   presentModal(obj) {
    // let modal = this.modalCtrl.create(ModalSalePage);
    let modal = this.modalCtrl.create(ModalPaymentPage, {"bill": obj});
+   modal.onDidDismiss(data => {
+    console.log(data);
+    this.getPayments();
+  });
    modal.present();
  }
 
