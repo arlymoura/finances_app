@@ -84,7 +84,6 @@ export class HomePage {
     }
 
     getItems(ev: any) {
-
       this.list_clients = this.list_clients_search;
       // this.text = this.textSerach;
       // this.count = this.count = Object.keys(this.list_clients).length
@@ -110,5 +109,14 @@ export class HomePage {
         this.list_clients = this.list_clients_search;
         this.count = Object.keys(this.list_clients).length
       }
+    }
+
+     deleteClient(item){
+      this.serviceProvider.deleteClient(item)
+      .then((notes: Array<any> )=>{
+        this.getClients();
+      }, (error) => {
+        console.log('Erro ao Carregar os Clientes ', error)
+      })
     }
 }

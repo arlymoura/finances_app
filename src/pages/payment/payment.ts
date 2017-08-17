@@ -87,4 +87,13 @@ export class PaymentPage {
    alert.present();
  }
 
+ deleteSale(item){
+      this.serviceProvider.deleteSale(item)
+      .then((notes: Array<any> )=>{
+        this.getClients();
+      }, (error) => {
+        console.log('Erro ao Carregar os Clientes ', error)
+      })
+    }
+
 }

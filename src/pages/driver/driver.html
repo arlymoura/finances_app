@@ -14,10 +14,26 @@
 
   <ion-list>
 
-    <ion-item *ngFor="let driver of list_drive" (click)="goToDriveOnePage(driver)">
+    <ion-item-sliding *ngFor="let driver of list_drive">
+    <ion-item (click)="goToDriveOnePage(driver)">
       <ion-icon name="ios-contact" item-start></ion-icon>
       <h2><b>Rota: </b>{{ driver.name }}</h2>
     </ion-item>
+
+    <ion-item-options side="right">
+        <button ion-button>
+              <ion-icon name="archive"></ion-icon>
+              Editar
+            </button>
+
+        <button ion-button color="danger">
+          <ion-icon name="trash"></ion-icon>
+          Deletar
+        </button>
+
+      </ion-item-options>
+    </ion-item-sliding>
+    
   </ion-list>
 
   <ion-fab right bottom>

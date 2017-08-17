@@ -4,8 +4,8 @@ page-index {
     border-radius: 25px;
     background: #488aff;
     padding: 20px; 
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     box-shadow: 5px 5px 2px #888888;
     }
 
@@ -14,6 +14,13 @@ page-index {
         width: auto !important;
         margin: auto !important;
         display: block !important;
+    }
+
+    .back-imagem {
+        background-image: url(/assets/img/money.png);
+
+        
+
     }
 
 }

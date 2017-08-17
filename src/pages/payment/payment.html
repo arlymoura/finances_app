@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Histórico de Pagamentos</ion-title>
+    <ion-title>HISTÓRICO DE PAGAMENTOS</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,10 +10,8 @@
 <ion-content padding>
 
   <div class="container">
-    <!-- <div class="page-header">
-      <h1 id="timeline">Histórico de Pagamentos</h1>
-    </div> -->
-    <h2>Total do Débito: {{ debito }}</h2>
+    <h2>TOTAL DE DÉBITO: {{ debito }}</h2>
+
     <ul class="timeline">
 
     <li *ngFor="let item of payments">
@@ -23,12 +21,17 @@
           <h5 class="timeline-title">R$: {{ item.value }}</h5>
           <p><ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>  {{ item.date }}</p>
         </div>
-
       </div>
     </li>
   </ul>
   </div>
+
   <ion-fab right bottom>
-    <button ion-fab color="secondary" (click)="presentModal(bill)"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" ><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+        <button ion-fab color="secondary" (click)="presentModal(bill)"><ion-icon name="add"></ion-icon></button>
+        <button ion-fab color="danger" (click)="presentModal(bill)"><ion-icon name="trash"></ion-icon></button>
+    </ion-fab-list>
   </ion-fab>
+
 </ion-content>

@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>Cliente</ion-title>
+    <ion-title text-uppercase>{{ client.name }}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -22,13 +22,13 @@
 
   <br>
 
-  <h3>Lista de Contas</h3>
+  <h3>LISTA DE VENDAS</h3>
 
    <table *ngIf="client.bills != undefined">
     <tr>
-      <th>Data</th>
-      <th>Valor Total</th>
-      <th>Valor Pago</th>
+      <th>DATA</th>
+      <th>VALOR TOTAL</th>
+      <th>VALOR PAGO</th>
     </tr>
 
     <tr *ngFor="let bill of client.bills" (click)="goToPaymentPage(bill)">
@@ -38,7 +38,7 @@
     </tr>
   </table>
 
-  <ion-fab right bottom>
+  <ion-fab bottom right>
     <button ion-fab color="secondary" (click)="presentModal(client)"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServiceProvider {
 
-  private baseUrl = "http://192.168.0.33:3000";
+  private baseUrl = "https://secure-brook-42278.herokuapp.com";
   public data = {};
 
   public drive = {};
@@ -135,6 +135,44 @@ export class ServiceProvider {
 
     return new Promise((resolve, reject) => {
       this.http.post(this.baseUrl + "/payments", body, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, error => {
+        reject(error)
+      });
+    });
+  }
+
+   deleteClient(item) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.baseUrl + "/clients/" + item.id, options)
+      .map(res => res.json())
+      .subscribe(data => {
+        resolve(data);
+      }, error => {
+        reject(error)
+      });
+    });
+  }
+
+  deleteSale(item) {
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.delete(this.baseUrl + "/bills/" + item.id, options)
       .map(res => res.json())
       .subscribe(data => {
         resolve(data);
