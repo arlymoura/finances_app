@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController, LoadingController, AlertController } from 'ionic-angular';
 import { ModalPaymentPage } from "../modal-payment/modal-payment";
 import { ServiceProvider } from "../../providers/service/service";
+import { ClientPage } from "../client/client";
+import { IndexPage } from "../index/index";
 
 @Component({
   selector: 'page-payment',
@@ -16,6 +18,7 @@ export class PaymentPage {
   private bill;
   private debito;
   private total;
+  private client: any;
   private loader: any;
 
   constructor(public navCtrl: NavController,
@@ -90,10 +93,38 @@ export class PaymentPage {
  deleteSale(item){
       this.serviceProvider.deleteSale(item)
       .then((notes: Array<any> )=>{
-        this.getClients();
+        this.getClient();
+        // this.navCtrl.push(ClientPage, {"client": this.client});
+        this.navCtrl.setRoot(IndexPage);
       }, (error) => {
         console.log('Erro ao Carregar os Clientes ', error)
       })
+    }
+
+    getClient(){
+
+        this.loader = this.loadingCtrl.create({
+           content: "Aguarde ...",
+           duration: 10000
+        });
+
+        this.loader.present();
+
+        this.serviceProvider.getOneClient(this.bill.client_id).subscribe (
+            data => {
+              const response = (data as any);
+              const object_return = JSON.parse(response._body);
+              this.client = object_return;
+              console.log(this.client);
+              this.loader.dismiss();
+              this.navCtrl.push(ClientPage, {"client": this.client});
+            }, error=> {
+              this.loader.dismiss();
+              console.log(error);
+              this.showAlert();
+
+            }
+          )
     }
 
 }
