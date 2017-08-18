@@ -16,8 +16,18 @@
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary">Data</ion-label>
+      <ion-label color="primary">Data Entrada</ion-label>
      <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" [(ngModel)]="sale.date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Data Termino</ion-label>
+     <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" [(ngModel)]="sale.end_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color="primary">Quantidade Parcelas</ion-label>
+      <ion-input type="number" placeholder="Ex.: 24" [(ngModel)]="sale.quant"></ion-input>
     </ion-item>
 
     <ion-item [hidden]="true">
