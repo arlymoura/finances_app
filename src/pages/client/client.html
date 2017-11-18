@@ -26,17 +26,15 @@
 
    <table *ngIf="client.bills != undefined">
     <tr>
-      <th>DATA I.</th>
-      <th>DATA F.</th>
+      <th>DATA</th>
       <th>VALOR TOTAL</th>
       <th>VALOR PAGO</th>
-      <th>Quant.</th>
+      <th>Quantidade Parcelas</th>
     </tr>
 
     <tr *ngFor="let bill of client.bills" (click)="goToPaymentPage(bill)"
         [ngClass]="(bill.status != 'paid') ? 'null' : 'strikeout'" >
       <td>{{bill.date}}</td>
-      <td>{{bill.end_date}}</td>
       <td>{{bill.value}}</td>
       <td>{{bill.paid}}</td>
       <td>{{bill.total_payments}}</td>

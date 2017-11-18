@@ -20,8 +20,9 @@ export class ModalPaymentPage {
               public viewCtrl: ViewController,
               private toastCtrl: ToastController,
               public alertCtrl: AlertController) {
-              this.payment = {};
+
               this.bill = navParams.get('bill');
+              this.payment = {date: new Date().toISOString()};
   }
 
   ionViewDidLoad() {

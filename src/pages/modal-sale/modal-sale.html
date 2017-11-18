@@ -16,14 +16,14 @@
     </ion-item>
 
     <ion-item>
-      <ion-label color="primary">Data Entrada</ion-label>
-     <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" [(ngModel)]="sale.date"></ion-datetime>
+      <ion-label color="primary">Data</ion-label>
+     <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="sale.date"></ion-datetime>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="primary">Data Termino</ion-label>
      <ion-datetime placeholder="Ex.: Dia/Mês/Ano" displayFormat="DD/MM/YYYY" [(ngModel)]="sale.end_date"></ion-datetime>
-    </ion-item>
+    </ion-item> -->
 
     <ion-item>
       <ion-label color="primary">Quantidade Parcelas</ion-label>
@@ -40,10 +40,10 @@
       <ion-input placeholder="Ex.: Client" [(ngModel)]="sale.client_id" value={{client.id}}></ion-input>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label color="primary">Observação</ion-label>
       <ion-textarea placeholder="Digite uma Observação" [(ngModel)]="sale.note"></ion-textarea>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 
   <div class="buttons">

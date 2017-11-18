@@ -28,7 +28,7 @@ private client: any;
               private toastCtrl: ToastController) {
 
     this.client = navParams.get('client');
-    this.sale = {};
+    this.sale = {date: new Date().toISOString()};
 
   }
 

@@ -11,8 +11,24 @@
 
   <div class="container">
     <h2>TOTAL DE DÉBITO: {{ debito }}</h2>
+    <br/>
+    <h3>LISTA DE VENDAS</h3>
 
-    <ul class="timeline">
+     <table *ngIf="payments != undefined">
+      <tr>
+        <th>DATA</th>
+        <th>VALOR PAGO</th>
+        <th>STATUS</th>
+      </tr>
+
+      <tr *ngFor="let item of payments" >
+        <td>{{item.date}}</td>
+        <td>{{item.value}}</td>
+        <td>PAGO</td>
+      </tr>
+    </table>
+
+    <!-- <ul class="timeline">
 
     <li *ngFor="let item of payments">
       <div class="timeline-badge"><ion-icon name="md-arrow-round-down"></ion-icon></div>
@@ -23,7 +39,7 @@
         </div>
       </div>
     </li>
-  </ul>
+  </ul> -->
   </div>
 
   <ion-fab right bottom>
